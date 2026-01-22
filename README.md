@@ -1,0 +1,2 @@
+# HorrorMovie_suvRate
+ホラー映画における生存率を求める
