@@ -2,8 +2,8 @@
 ホラー映画における職業ごとの生存率を求める
 
 # SPARQLエンドポイント
-- EndpointのURL https://lod.hozo.jp/kz-fuseki/horror_movie/sparql
-- [検索用Web GUI](https://yasgui.triply.cc/?endpoint=https://lod.hozo.jp/kz-fuseki/horror_movie/sparql)
+- EndpointのURL https://lod.hozo.jp/fuseki/horror_movie/sparql
+- [検索用Web GUI](https://yasgui.triply.cc/?endpoint=https://lod.hozo.jp/fuseki/horror_movie/sparql)
 
 ## [サンプルクエリ](https://github.com/oecu-kozaki-lab/HorrorMovie_suvRate/blob/main/sample_queries.md)
 
@@ -25,36 +25,44 @@
 ## 説明サンプル図用
 https://www.kanzaki.com/works/2009/pub/graph-draw
 ```
-@prefix ex: <http://example.org/movie-analysis#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+PREFIX hm:   <https://kozaki-lab.jp/lod/horror_movie#>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-ex:Police rdf:type ex:Role ; rdfs:label "警官"@ja .
-ex:Soldier rdf:type ex:Role ; rdfs:label "兵士"@ja .
+hm:Movie_Q1454815  rdf:type          hm:Movie;
+        rdfs:seeAlso                 <http://www.wikidata.org/entity/Q1454815>;
+        hm:countType                 hm:Estimated;
+        hm:estimatedTotalCharacters  14;
+        hm:hasRoleStats              hm:Movie_Q1454815_RoleStats_Civilian , hm:Movie_Q1454815_RoleStats_Student;
+        hm:title                     "13日の金曜日"@ja .
 
-ex:Estimated rdf:type ex:CountType ;
-    rdfs:label "推定値（分析用）"@ja .
+hm:Movie_Q1454815_RoleStats_Civilian
+        rdf:type       hm:RoleStatistics;
+        hm:countType   hm:Estimated;
+        hm:deathCount  4;
+        hm:role        hm:Civilian .
 
-ex:Movie_13Ghosts
-    rdf:type ex:Movie ;
-    ex:title "13ゴースト"@ja ;
-    ex:estimatedTotalCharacters 26 ;
-    ex:countType ex:Estimated ;
-    ex:hasRoleStats
-        ex:Movie_13Ghosts_RoleStats1 ,
-        ex:Movie_13Ghosts_RoleStats2.
+hm:Movie_Q1454815_RoleStats_Student
+        rdf:type       hm:RoleStatistics;
+        hm:countType   hm:Estimated;
+        hm:deathCount  5;
+        hm:role        hm:Student .
 
-ex:Movie_13Ghosts_RoleStats1
-    rdf:type ex:RoleStatistics ;
-    ex:role ex:Police ;
-    ex:deathCount 2 ;
-    ex:countType ex:Estimated .
 
-ex:Movie_13Ghosts_RoleStats2
-    rdf:type ex:RoleStatistics ;
-    ex:role ex:Soldier ;
-    ex:deathCount 0 ;
-    ex:countType ex:Estimated .
+hm:Movie rdfs:label  "映画"@ja .
+
+hm:RoleStatistics rdfs:label  "役職別統計"@ja .
+
+hm:Estimated rdfs:label  "推定値（分析用）"@ja .
+
+hm:Role  rdfs:label  "役職"@ja .
+
+hm:Student  rdf:type  hm:Role; 
+        rdfs:label  "学生"@ja .
+
+hm:Civilian  rdf:type  hm:Role;
+        rdfs:label  "一般市民"@ja .
 ```
-<img width="1139" height="596" alt="image" src="https://github.com/user-attachments/assets/84d2750d-1bde-4568-83d2-5ca5c9a46342" />
+<img width="1421" height="593" alt="image" src="https://github.com/user-attachments/assets/853a047d-31b3-44b6-89ee-2703b11584d3" />
+
+
