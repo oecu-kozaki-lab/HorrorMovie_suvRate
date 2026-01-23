@@ -36,10 +36,12 @@
     transform: translateY(-50%);
 }
 
-#result{
-    border: 250px solid #eeeeee;
+#result {
+    background-color: #e7e2e2; 
     border-radius: 25px;
-    margin: 50px;
+    margin: 50px auto;
+    padding: 40px;
+    width: 80%;
+    min-height: 400px;
     text-align: center;
-    
 }
