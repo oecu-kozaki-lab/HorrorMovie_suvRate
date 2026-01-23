@@ -11,7 +11,6 @@
 ## [サンプルクエリ](https://github.com/oecu-kozaki-lab/HorrorMovie_suvRate/blob/main/sample_queries.md)
 
 # TODO
-- CSV3を作り直して、別のフォルダにTTLをアップする　→　古崎が処理してアップする
 - サンプルクエリを作ってアップ
 - （できるなら）アプリに組み込む？
 - 説明資料(レポジトリにMDで書くと直しやすい。PDFならレポジトリにアップしてリンク張る) 
