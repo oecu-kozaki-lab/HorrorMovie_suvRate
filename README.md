@@ -1,7 +1,10 @@
 # HorrorMovie_suvRate
 ホラー映画における職業ごとの生存率を求める
 
-# SPARQLエンドポイント
+# データ
+## ダウンロード
+- https://github.com/oecu-kozaki-lab/HorrorMovie_suvRate/tree/main/data
+## SPARQLエンドポイント
 - EndpointのURL https://lod.hozo.jp/fuseki/horror_movie/sparql
 - [検索用Web GUI](https://yasgui.triply.cc/?endpoint=https://lod.hozo.jp/fuseki/horror_movie/sparql)
 
