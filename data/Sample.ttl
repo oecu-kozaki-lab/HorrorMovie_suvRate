@@ -1,0 +1,45 @@
+PREFIX hm:   <https://kozaki-lab.jp/lod/horror_movie#>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+hm:Movie_Q1454815  rdf:type          hm:Movie;
+        rdfs:seeAlso                 <http://www.wikidata.org/entity/Q1454815>;
+        hm:countType                 hm:Estimated;
+        hm:estimatedTotalCharacters  14;
+        hm:hasRoleStats              hm:Movie_Q1454815_RoleStats_Civilian , hm:Movie_Q1454815_RoleStats_Student;
+        hm:title                     "13日の金曜日"@ja .
+
+hm:Movie_Q1454815_RoleStats_Civilian
+        rdf:type       hm:RoleStatistics;
+        hm:countType   hm:Estimated;
+        hm:deathCount  4;
+        hm:role        hm:Civilian .
+
+hm:Movie_Q1454815_RoleStats_Student
+        rdf:type       hm:RoleStatistics;
+        hm:countType   hm:Estimated;
+        hm:deathCount  5;
+        hm:role        hm:Student .
+
+
+hm:Movie  rdf:type  rdfs:Class;
+        rdfs:label  "映画"@ja .
+
+hm:RoleStatistics  rdf:type  rdfs:Class;
+        rdfs:label  "役職別統計"@ja .
+
+hm:CountType  rdf:type  rdfs:Class;
+        rdfs:label  "カウントタイプ"@ja .
+
+hm:Estimated  rdf:type  hm:CountType;
+        rdfs:label  "推定値（分析用）"@ja .
+
+hm:Role  rdf:type  rdfs:Class;
+        rdfs:label  "役職"@ja .
+
+hm:Student  rdf:type  hm:Role;
+        rdfs:label  "学生"@ja .
+
+hm:Civilian  rdf:type  hm:Role;
+        rdfs:label  "一般市民"@ja .
+
