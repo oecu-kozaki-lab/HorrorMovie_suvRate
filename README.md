@@ -15,7 +15,7 @@
 [アプリケーションについて](https://github.com/oecu-kozaki-lab/HorrorMovie_suvRate/blob/main/Application_description.md)
  
 ## 目的
-　ホラー映画において「どのような職業・役割が物語上で犠牲になりやすいか」を  
+ホラー映画において「どのような職業・役割が物語上で犠牲になりやすいか」を  
 Linked Open Data と SPARQL によって定量分析可能な形に構造化することを目的とする。
 
 既存の映画データベース（Wikidata 等）には登場人物の職業別統計や生死情報は存在しないため、  
