@@ -8,7 +8,8 @@
 - EndpointのURL https://lod.hozo.jp/fuseki/horror_movie/sparql
 - [検索用Web GUI](https://yasgui.triply.cc/?endpoint=https://lod.hozo.jp/fuseki/horror_movie/sparql)
 
-## [サンプルクエリ](https://github.com/oecu-kozaki-lab/HorrorMovie_suvRate/blob/main/sample_queries.md)
+## サンプルクエリ
+[サンプルクエリ](https://github.com/oecu-kozaki-lab/HorrorMovie_suvRate/blob/main/sample_queries.md)
 
 # TODO
 - サンプルクエリを作ってアップ
