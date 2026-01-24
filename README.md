@@ -16,6 +16,8 @@
 ## アプリケーションの説明
 [アプリケーションについて](https://github.com/oecu-kozaki-lab/HorrorMovie_suvRate/blob/main/Application_description.md)
 
+[アプリケーションの実行用Webページ](https://oecu-kozaki-lab.github.io/HorrorMovie_suvRate/)
+
 ## データ作成方法
 
 本システムのRDFデータは、既存のオープンデータとChatgpt5-nanoを組み合わせて作成したものである。作成手順は以下の通りである。
