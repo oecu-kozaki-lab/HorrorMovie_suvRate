@@ -16,6 +16,24 @@ where{
 ```
 [クエリの実行](https://api.triplydb.com/s/o2j-Lym8M)
 
+## 全映画データを対象に「映画ごとの死亡数合計」を算出し、降順に並べ替える
+```
+prefix ex:    <http://example.org/movie-analysis#>
+prefix xsd:   <http://www.w3.org/2001/XMLSchema#>
+prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
+
+select ?movie ?title (sum(?deathCount) as ?totalDeaths)
+where {
+  ?movie a ex:Movie ;
+         ex:title ?title ;
+         ex:hasRoleStats ?stat .
+
+  ?stat ex:deathCount ?deathCount .
+}
+group by ?movie ?title
+order by desc(?totalDeaths)
+```
+
 ## 全映画データを対象に「職業ごとの死亡数合計」を算出し、降順に並べ替える
 ```
 prefix ex:    <http://example.org/movie-analysis#>
@@ -34,4 +52,3 @@ where {
 }
 group by ?roleLabel
 order by desc(?totalDeaths)
-
