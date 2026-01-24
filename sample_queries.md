@@ -33,7 +33,7 @@ where {
 group by ?movie ?title
 order by desc(?totalDeaths)
 ```
-[クエリの実行](https://x.gd/JoZqE)
+[クエリの実行](https://api.triplydb.com/s/0Y5Tfbzme)
 
 ## 全映画データを対象に「職業ごとの死亡数合計」を算出し、降順に並べ替えるクエリ
 ```
