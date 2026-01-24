@@ -3,7 +3,7 @@
 * LODの活用とWikiDataとの連携： 表示された映画タイトルをクリックすると、WikiDataの該当ページへ遷移し、より詳細な映画情報にアクセス可能
 
 ## 使用技術
-フロントエンド： HTML, CSS, Javascript
-バックエンド/データベース： Fuseki
-データソース； WikiData
-データフォーマット； RDF/Turtle
+* フロントエンド： HTML, CSS, Javascript
+* バックエンド/データベース： Fuseki
+* データソース； WikiData
+* データフォーマット； RDF/Turtle
