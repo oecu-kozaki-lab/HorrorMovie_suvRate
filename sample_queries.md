@@ -54,4 +54,4 @@ where {
 group by ?roleLabel
 order by desc(?totalDeaths)
 ```
-[クエリの実行](https://api.triplydb.com/s/o2j-Lym8M)
+[クエリの実行](https://api.triplydb.com/s/LjO0pgkdh)
