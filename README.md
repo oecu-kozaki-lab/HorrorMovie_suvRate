@@ -16,7 +16,7 @@
 ## アプリケーションの説明
 [アプリケーションについて](https://github.com/oecu-kozaki-lab/HorrorMovie_suvRate/blob/main/Application_description.md)
 
-[アプリケーションの実行用Webページ](https://oecu-kozaki-lab.github.io/HorrorMovie_suvRate/)
+[アプリケーション実行用Webページ](https://oecu-kozaki-lab.github.io/HorrorMovie_suvRate/)
 
 ## データ作成方法
 
