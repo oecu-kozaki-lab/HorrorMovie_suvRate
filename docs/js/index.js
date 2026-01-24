@@ -14,20 +14,22 @@ function createQuery(movieTitle){
     if(!movieTitle) return;
 
     const query = `
-        PREFIX ex: <http://example.org/movie-analysis#>
+        prefix hm:   <https://kozaki-lab.jp/lod/horror_movie#>
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-        SELECT ?totalCharacters ?roleName ?deathCount
+        SELECT ?totalCharacters ?roleName ?deathCount ?wikiLink
         WHERE {
-            ?movie a ex:Movie ;
-                   ex:title "${movieTitle}"@ja ;
-                   ex:estimatedTotalCharacters ?totalCharacters ;
-                   ex:hasRoleStats ?stats .
+            ?movie a hm:Movie ;
+                   hm:title "${movieTitle}"@ja ;
+                   hm:estimatedTotalCharacters ?totalCharacters ;
+                   hm:hasRoleStats ?stats .
 
-            ?stats ex:role ?roleEntity ;
-                   ex:deathCount ?deathCount .
+            ?stats hm:role ?roleEntity ;
+                   hm:deathCount ?deathCount .
 
             ?roleEntity rdfs:label ?roleName .
+
+            OPTIONAL {?movie rdfs:seeAlso ?wikiLink .}
         }
         ORDER BY DESC(?deathCount)
     `;
@@ -36,7 +38,7 @@ function createQuery(movieTitle){
 }
 
 function getData(query, movieTitle){
-    let endpoint = "http://localhost:3030/horror/query";
+    let endpoint = "https://lod.hozo.jp/fuseki/horror_movie/sparql";
     const params = new URLSearchParams();
     params.append('query', query);
 
@@ -76,9 +78,17 @@ function showResult(data, title){
     const total = bindings[0].totalCharacters.value;
     const labels = bindings.map(item => item.roleName.value);
     const deaths = bindings.map(item => parseInt(item.deathCount.value));
+    const wikiLink = bindings[0].wikiLink ? bindings[0].wikiLink.value : null;
+
+    let titleHTML = "";
+    if (wikiLink) {
+        titleHTML = `<a href="${wikiLink}" target="_blank" rel="noopener noreferrer">${title}</a>`;
+    }else{
+        titleHTML = title;
+    }
 
     resultDiv.innerHTML = `
-        <h2 style="margin-bottom: 10px;">${title}</h2>
+        <h2 style="margin-bottom: 10px;">${titleHTML}</h2>
         <div style="font-size: 1.2em; margin-bottom: 20px;">
             登場人物総数: <strong>${total}</strong> 人
         </div>
@@ -100,6 +110,17 @@ function showResult(data, title){
                 borderColor: 'rgba(200, 50, 50, 1)',
                 borderWidth: 1
             }]
+        },
+
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: { stepSize: 1 }
+                }
+            }
         }
     });
 }
