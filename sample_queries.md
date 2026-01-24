@@ -18,7 +18,7 @@ where{
 
 ## 全映画データを対象に「映画ごとの死亡数合計」を算出し、降順に並べ替えるクエリ
 ```
-prefix hm:    <https://kozaki-lab.jp/lod/horror_movie#>
+prefix hm: <https://kozaki-lab.jp/lod/horror_movie#>
 prefix xsd:   <http://www.w3.org/2001/XMLSchema#>
 prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
 
@@ -36,7 +36,7 @@ order by desc(?totalDeaths)
 
 ## 全映画データを対象に「職業ごとの死亡数合計」を算出し、降順に並べ替えるクエリ
 ```
-prefix hm:    <https://kozaki-lab.jp/lod/horror_movie#>
+prefix hm:<https://kozaki-lab.jp/lod/horror_movie#>
 prefix xsd:   <http://www.w3.org/2001/XMLSchema#>
 prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
 
