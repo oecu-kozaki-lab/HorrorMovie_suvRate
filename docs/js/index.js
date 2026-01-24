@@ -36,7 +36,7 @@ function createQuery(movieTitle){
 }
 
 function getData(query, movieTitle){
-    let endpoint = "http://localhost:3030/horror/query";
+    let endpoint = "https://lod.hozo.jp/fuseki/horror_movie/sparql";
     const params = new URLSearchParams();
     params.append('query', query);
 
