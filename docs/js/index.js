@@ -2,12 +2,57 @@ let myChart = null;
 
 window.onload = () => {
     let titleIndex = document.getElementById("inputTitle");
+
+    suggestTitles(titleIndex);
+
     titleIndex.onkeydown = (e) => {
         if(e.key === "Enter"){
             e.preventDefault();
             createQuery(titleIndex.value);
         }
     }
+}
+
+suggestTitles = (inputElement) => {
+    let endpoint = "https://lod.hozo.jp/fuseki/horror_movie/sparql";
+    const query = `
+        prefix hm:   <https://kozaki-lab.jp/lod/horror_movie#>
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+        SELECT DISTINCT ?title
+        WHERE {
+            ?movie a hm:Movie ;
+                     hm:title ?title .
+        }
+        ORDER BY ?title
+    `;
+
+    const params = new URLSearchParams();
+    params.append('query', query);
+
+    fetch(endpoint, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/sparql-results+json',
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: params
+    })
+    .then(response => {
+        if (!response.ok){
+            console.log("データの取得に失敗しました", response.statusText);
+        }
+        return response.json();
+    })
+    .then(data => {
+        const titles = data.results.bindings.map(item => item.title.value);
+        const dataList = document.getElementById("movieTitles");
+        dataList.innerHTML = "";
+        titles.forEach(title => {
+            const option = document.createElement("option");
+            option.value = title;
+            dataList.appendChild(option);
+        });
+    })
 }
 
 function createQuery(movieTitle){
