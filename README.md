@@ -96,9 +96,29 @@ Apache JenaのRDFパーサーを用いてTurtle構文チェックを実施した
 職業別死亡数の検索、映画別死亡数の検索等
 が可能になっている。
 ## データの説明
-- クラス
-  - 職業：警官、。。。。   
-- 述語
+クラス
+■ ex:Movie　映画作品を表すクラス。
+
+述語	内容
+ex:title	映画タイトル
+ex:estimatedTotalCharacters	登場人物総数（推定値を含む）
+ex:countType	人数が推定値か実数か
+ex:hasRoleStats	職業別統計へのリンク
+
+■ ex:RoleStatistics　映画内の職業ごとの死亡統計情報を表すクラス。
+
+述語	内容
+ex:role	対象職業
+ex:deathCount	職業の死亡人数
+ex:countType	死亡数が推定値かどうか
+
+
+■ ex:Role　登場人物の職業を表すクラス。
+
+例
+ex:Police
+ex:Student
+ex:Scientist
   
 
 ## 説明サンプル図用
