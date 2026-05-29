@@ -14,7 +14,7 @@ window.onload = () => {
 }
 
 suggestTitles = (inputElement) => {
-    let endpoint = "https://lod.hozo.jp/fuseki/horror_movie/sparql";
+    let endpoint = "https://lod.hozo.jp/kz-fuseki/horror_movie/sparql";
     const query = `
         prefix hm:   <https://kozaki-lab.jp/lod/horror_movie#>
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
